@@ -7,6 +7,8 @@
     <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous"> -->
     <link rel="stylesheet" href="main.css">
     <script src="https://kit.fontawesome.com/378bd903f9.js" crossorigin="anonymous"></script>
+    <!-- <style type="text/css">
+    </style> -->
 </head>
 <body>
     <!-- navbar -->
@@ -32,7 +34,24 @@
     <!-- navbar end-->
 
     <section class="about" id="about">
-      <div class="jumbotron"></div>
+      <div class="jumbotron">
+        <div class="svg-block">
+          <svg 
+            xmlns="http://www.w3.org/2000/svg"
+            width="8.26772in" 
+            height="11.6929in"
+            viewBox="0 0 8268 11693"
+            id="logo"
+            fill="none"
+          >
+              <polygon class=" str0" points="1602,4951 1896,4951 1896,4318 2457,4318 2457,4951 2751,4951 2751,3389 2457,3389 2457,4034 1896,4034 1896,3389 1602,3389 "/>
+              <path class=" str0" d="M3041 4342l0 125c0,106 20,195 60,270 40,75 98,132 175,171 76,39 168,59 275,59 74,0 147,-15 220,-44 72,-29 137,-70 195,-123l-193 -171c-31,26 -66,46 -105,60 -38,14 -77,21 -117,21 -76,0 -136,-21 -179,-62 -34,-34 -54,-79 -61,-134l684 0 0 -74c0,-131 -18,-242 -54,-335 -37,-93 -89,-164 -159,-212 -69,-49 -153,-73 -250,-73 -104,0 -193,20 -266,61 -73,41 -129,100 -167,178 -39,78 -58,172 -58,283zm268 -27c2,-70 22,-125 58,-165 39,-42 94,-63 165,-63 54,0 98,17 130,53 33,35 53,84 61,149l3 26 -417 0z"/>
+              <path class=" str0" d="M4253 3389l0 1266c0,94 25,167 74,218 49,52 119,78 208,78l151 0 0 -284 -50 0c-29,0 -51,-7 -66,-22 -15,-15 -23,-36 -23,-63l0 -1193 -294 0z"/>
+              <path class=" str0" d="M4889 3389l0 1266c0,94 25,167 74,218 50,52 120,78 209,78l150 0 0 -284 -49 0c-29,0 -51,-7 -66,-22 -16,-15 -23,-36 -23,-63l0 -1193 -295 0z"/>
+              <path class=" str0" d="M5550 4040c-37,72 -56,159 -56,260l0 181c0,103 19,190 56,263 38,72 93,128 165,166 72,38 158,57 260,57 102,0 189,-19 261,-57 71,-38 126,-93 164,-165 38,-72 56,-159 56,-261l0 -184c0,-101 -18,-188 -56,-260 -38,-72 -93,-127 -164,-164 -72,-38 -159,-56 -261,-56 -102,0 -188,18 -260,56 -72,37 -127,92 -165,164zm238 444l0 -184c0,-62 16,-111 49,-145 33,-35 78,-52 137,-52 60,0 106,17 139,52 33,34 49,83 49,145l0 184c0,63 -16,112 -49,147 -33,35 -79,52 -139,52 -59,0 -105,-17 -137,-52 -33,-35 -49,-84 -49,-147z"/>
+          </svg>
+        </div>
+      </div>
       <div class="container">
           <h1>Muhammad Irzza</h1>  
           <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos ducimus repellendus dolorem eum consequatur id exercitationem nesciunt, inventore modi perferendis impedit esse, tempora officia, ipsam quae libero. Nostrum, alias dignissimos.</p>
@@ -46,11 +65,11 @@
         <div class="container-things">
             <h1>Things I Can Do</h1>
             <p>Hi, there's some basic stuffs that I usually use when developing web, please look at below information.</p>
-            <div style="display: flex; justify-content: center; align-items: center; flex-wrap: wrap;" id="skill">
+            <div style="display: flex; justify-content: space-around; align-items: center; flex-wrap: wrap;" id="skill">
 
             </div>
         </div>
-        <hr>
+        <hr class="tes">
     </section>
 
     <section id="projects" class="projectss">
@@ -61,7 +80,7 @@
 
           </div>
         </div>
-        <hr>
+        <hr class="tes">
     </section>
 
     <section id="contact-me" class="contact-me">
@@ -69,14 +88,14 @@
           <h1>Contact Me</h1>
             <p>If you have any questions or comments, please use this form to get in touch with me.</p>
             <div class="grid-contact">
-              <div class="wrapper">
-                <input type="text" required id="fullname">
-                <div class="placeholder">
+              <div class="wrapper" id="fullname-wrapper">
+                <input type="text" required maxlength="35" id="fullname">
+                <div class="placeholder" id="fullname-placeholder">
                   Full Name
                 </div>
               </div>
               <div class="wrapper">
-                <input type="text" required id="subject">
+                <input type="text" required maxlength="50" id="subject" >
                 <div class="placeholder">
                   Subject
                 </div>
@@ -88,13 +107,13 @@
                 </div>
               </div>
               <div class="wrapper-textarea">
-                <textarea name="message" id="message" required class="email-message"></textarea>
+                <textarea name="message" id="message" required class="email-message" maxlength="250"></textarea>
                 <div class="placeholder-textarea">
                   Your Message
                 </div>
               </div>
             </div>
-            <div style="margin-top: 10px; display: flex; justify-content: space-between; width: 270px;">
+            <div class="button-group">
               <button class="button-send" onclick="sendData()"> Send Message </button>
               <button class="button-reset" onclick="resetForm()"> Reset Form </button>
             </div>

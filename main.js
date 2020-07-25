@@ -30,7 +30,7 @@ class Projects {
       new Skills('Frontend',['Javascript','Html','CSS','React Js','Redux','Axios']),
       new Skills('Backend',['Node Js','Express','My SQL','Mongodb','Nodemailer','JWT']),
       new Skills('Mobile',['React Native','Redux', 'Context']),
-      new Skills('Tools',['VS Code','GitHub','Scrum'])
+      new Skills('Tools',['VS Code','GitHub'])
   ]
 
   const printprojects = () => {
@@ -69,7 +69,7 @@ class Projects {
     var output = ''
     var inputname = ''
     var inputskill = ''
-    console.log(data.length)
+    // console.log(data.length)
     for (let i = 0; i < data.length; i++) {
       for (let j = 0; j < data[i].list.length; j++) {
         // const element = array[j];
@@ -102,12 +102,24 @@ class Projects {
   checkbox.addEventListener('change', function() {
       if(this.checked) {
           trans()
+          localStorage.checked = true
+          localStorage.setItem('theme', 'dark')
           document.documentElement.setAttribute('data-theme', 'dark')
       } else {
           trans()
+          localStorage.checked = false
+          localStorage.clear()
           document.documentElement.setAttribute('data-theme', 'light')
       }
   })
+
+  // keep darkmode
+  const currentTheme = localStorage.getItem('theme')
+
+  if (currentTheme) {
+    checkbox.checked = localStorage.checked    
+    document.documentElement.setAttribute('data-theme', 'dark')
+  }
 
   let trans = () => {
       document.documentElement.classList.add('transition');
@@ -156,16 +168,23 @@ class Projects {
       }
 
       let valemail = ValidateEmail(data.email)
+      let valname = validateName(data.name)
+
+      console.log(valemail)
       
-      if (valemail) {
-        postData('http://localhost:5000/email/postemails', { data })
+      if (valemail && valname) {
+        postData('http://localhost:5000/email/postemails', {data})
         .then(data => {
           Toast.show('Thank You! Your Message Has Been Sent', 'success')
           console.log(data); // JSON data parsed by `data.json()` call
           resetForm()
         })
       } else {
-        Toast.show('You have entered an invalid email address!', 'error')        
+        if (!valemail) {
+          Toast.show('You have entered an invalid email address!', 'error')        
+        } else {
+          Toast.show('Sorry, only letters are allowed!', 'error')          
+        }
       }      
     }
   }
@@ -189,6 +208,8 @@ class Projects {
   }
 
   const resetForm = () => {
+    document.getElementById('fullname-wrapper').classList.remove('errorclass');
+    document.getElementById('fullname-placeholder').classList.remove('errorclass');
     document.getElementById('email-wrapper').classList.remove('errorclass');
     document.getElementById('email-placeholder').classList.remove('errorclass');
     document.getElementById('fullname').value = ""
@@ -202,7 +223,6 @@ class Projects {
     if(inputText.match(mailformat)) {
         document.getElementById('email-wrapper').classList.remove('errorclass');
         document.getElementById('email-placeholder').classList.remove('errorclass');
-
         // document.form1.text1.focus();
         return true;
         // alert("You have entered a valid email address!");
@@ -214,3 +234,30 @@ class Projects {
         return false;
     }
   }
+
+  function validateName(input) {
+    var nameFormat = /^[a-zA-Z]*$/g;
+    if (input.match(nameFormat)) {
+      document.getElementById('fullname-wrapper').classList.remove('errorclass');
+      document.getElementById('fullname-placeholder').classList.remove('errorclass');
+      return true;      
+    } else {
+      document.getElementById('fullname-wrapper').classList.add('errorclass');
+      document.getElementById('fullname-placeholder').classList.add('errorclass');
+      return false;    
+    }
+  }
+
+  const logo = document.querySelectorAll("#logo path")
+  const logopoly = document.querySelectorAll("#logo polygon")
+  
+  
+
+  // for (let i = 0; i < logo.length; i++) {
+  //   // const element = array[i];
+  //   console.log(`Letter ${i} is ${logo[i].getTotalLength()}`)
+    
+  // }
+  // // console.log(`Letter ${logopoly.getTotalLength()}`)
+  // console.log(logopoly[0].getTotalLength())
+
