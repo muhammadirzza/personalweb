@@ -173,7 +173,7 @@ class Projects {
       console.log(valemail)
       
       if (valemail && valname) {
-        postData('http://localhost:5000/email/postemails', {data})
+        postData('https://irzzaweb.herokuapp.com/email/postemails', {data})
         .then(data => {
           Toast.show('Thank You! Your Message Has Been Sent', 'success')
           console.log(data); // JSON data parsed by `data.json()` call
