@@ -236,7 +236,7 @@ class Projects {
   }
 
   function validateName(input) {
-    var nameFormat = /^[a-zA-Z]*$/g;
+    var nameFormat = /^[a-zA-Z\s]*$/g;
     if (input.match(nameFormat)) {
       document.getElementById('fullname-wrapper').classList.remove('errorclass');
       document.getElementById('fullname-placeholder').classList.remove('errorclass');
