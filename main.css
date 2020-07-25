@@ -214,6 +214,10 @@ nav ul li a {
             color: var(--color-h1);
             font-size: 1.5em !important;
         }
+
+    .container h2 {
+        font-size: 1.25em !important;
+    }
     
     .container p, .container-contact p, .container-things p {
             color: var(--color-text);
@@ -353,10 +357,14 @@ nav ul li a {
         "title switch"
         "content content"; */
     }
-.container h1,.container-things h1, .container-contact h1 {
+.container h1, .container-things h1, .container-contact h1 {
         margin: 0;
         color: var(--color-h1);
         font-size: 2em;
+    }
+
+.container h2 {
+        color: var(--color-h1);
     }
 
 .container p, .container-contact p, .container-things p {
