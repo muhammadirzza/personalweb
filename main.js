@@ -14,9 +14,9 @@ class Projects {
     new Projects ('./assets/image/cuaca_2.png', null, 'https://github.com/muhammadirzza/cuaca_ala-ala', 'https://cuaca-alala.web.app/', null, 'Weather App', ''),
     new Projects ('./assets/image/little-bogor.png', null, 'https://github.com/muhammadirzza/little_bogor', 'https://little-bogor.herokuapp.com/', null, 'Little Bogor', ''),
     new Projects ('./assets/image/eid-al-fitr.png', null, 'https://github.com/muhammadirzza/idul_fitri', 'https://happy-eid-alfitr.herokuapp.com/', null, 'Eid Al Fitr', ''),
-    new Projects ("./assets/image/qur'an_2.png", null, 'https://github.com/muhammadirzza/quran', null, null, 'Quran', ''),
+    new Projects ("./assets/image/qur'an_2.png", null, 'https://github.com/muhammadirzza/quran', "https://www.linkedin.com/in/muhammad-irzza/detail/recent-activity/shares/", null, 'Quran', ''),
     new Projects ("./assets/image/e-commerce_2.png", null, 'https://github.com/muhammadirzza/frontend', null, null, 'E-Commerce Json-Server', ''),
-    new Projects ('./assets/image//tokobuku_2.png', null, 'https://github.com/muhammadirzza/quran', '', null, 'E-Commerce Restful API', '')
+    new Projects ('./assets/image/tokobuku_2.png', null, 'https://github.com/muhammadirzza/team_colab_baru', null, null, 'E-Commerce Restful API', '')
   ]
     
   class Skills{
