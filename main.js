@@ -155,6 +155,14 @@ class Projects {
 
   document.addEventListener("DOMContentLoaded", () => Toast.init());
 
+  const isloading = document.getElementById("loader-wrapper")
+  const removeLoad = () => {
+    isloading.classList.remove("isloading")
+  }
+  const addLoad = () => {
+    isloading.classList.add("isloading")
+  }
+
   const sendData = () => {
     let name = document.getElementById('fullname').value
     let email = document.getElementById('email').value
@@ -173,10 +181,21 @@ class Projects {
       console.log(valemail)
       
       if (valemail && valname) {
+        removeLoad()
+        // console.log(isloading)
+        // isloading.style.removeProperty("visibility")
         postData('https://irzzaweb.herokuapp.com/email/postemails', {data})
         .then(data => {
+          addLoad()
           Toast.show('Thank You! Your Message Has Been Sent', 'success')
-          console.log(data); // JSON data parsed by `data.json()` call
+          resetForm()
+        // console.log(isloading)
+          // isloading.style.visibility("hidden")
+          // console.log(data); // JSON data parsed by `data.json()` call
+        })
+        .catch(err => {
+        //   console.log(err)
+          Toast.show('Server Error', 'error')
           resetForm()
         })
       } else {
@@ -250,6 +269,8 @@ class Projects {
 
   const logo = document.querySelectorAll("#logo path")
   const logopoly = document.querySelectorAll("#logo polygon")
+
+  
   
   
 
